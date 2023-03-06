@@ -6,29 +6,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="User")
+@Table(name="Users")
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Users {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int userId;
 	
-	@Column(name="user_name", nullable=false, length=50, unique=true)
+	@Column(name="user_name", unique=true)
 	private String userName;
-	@Column(name="email", nullable=false, length=50,unique=true)
+	@Column(name="email", length=50,unique=true)
 	private String email;
 	@Column(name="mobile", length=20,unique=true)
 	private String mobile;
-	@Column(name="pincode", nullable=false, length=20)
+	@Column(name="pincode", length=20)
 	private String pincode;
 	@Column(name="street" ,length=100)
 	private String streetAddress;
