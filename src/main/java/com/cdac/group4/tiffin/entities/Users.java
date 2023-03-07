@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +18,7 @@ import lombok.Setter;
 public class Users {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int userId;
 	
 	@Column(name="user_name", unique=true)
@@ -37,5 +35,6 @@ public class Users {
 	private String houseName;
 	@Column(name="room_no", length=40)
 	private String roomNo;
+	private String password;
 	
 }

@@ -19,16 +19,21 @@ public class Vendor {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="vendor_id")
+	@Column(name="vendor_id", unique=true)
 	private int vendorId;
 	@Column(name="menu_id")
 	private int menuId;
 	@Column(name="vendor_name")
 	private String vendorName;
+	@Column(unique=true)
 	private String mobile;
+	@Column(unique=true)
 	private String email;
+	private String password;
 	private String pincode;
-	@Column(name="gst_number4")
-	private String gstNo;	
+	@Column(name="gst_number",unique=true)
+	private String gstNo;
+	private String street;
+	private String address;
 
 }

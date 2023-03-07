@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+//Decided later to not use it
 @Entity
 @Table(name="DailyMenu")
 @NoArgsConstructor
