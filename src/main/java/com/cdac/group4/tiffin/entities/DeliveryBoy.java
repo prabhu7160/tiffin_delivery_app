@@ -18,9 +18,9 @@ import lombok.Setter;
 @Setter
 public class DeliveryBoy {
 	
+	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="delivery_boy_id")
 	private int deliveryBoyId;
 	@Column(name="name")
 	private String deliveryBoyName;

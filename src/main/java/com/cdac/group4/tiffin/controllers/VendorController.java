@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cdac.group4.tiffin.payloads.ApiResponse;
-import com.cdac.group4.tiffin.payloads.VendorDto;
+import com.cdac.group4.tiffin.dtos.ApiResponse;
+import com.cdac.group4.tiffin.dtos.VendorDto;
 import com.cdac.group4.tiffin.services.VendorService;
 
 @RestController
@@ -38,7 +38,7 @@ public class VendorController {
 	
 	//PUT - for updating user
 	@PutMapping("/{vendorId}")
-	public ResponseEntity<VendorDto> updateVendor(@RequestBody VendorDto vendorDto, @PathVariable Integer vendorId){
+	public ResponseEntity<VendorDto> updateVendor(@Valid @RequestBody VendorDto vendorDto, @PathVariable Integer vendorId){
 		
 		//could also be like(,@PathVariable("vendorId") Integer anyId)
 		

@@ -1,8 +1,6 @@
 package com.cdac.group4.tiffin.controllers;
 
 import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cdac.group4.tiffin.payloads.ApiResponse;
-import com.cdac.group4.tiffin.payloads.UserDto;
+import com.cdac.group4.tiffin.dtos.ApiResponse;
+import com.cdac.group4.tiffin.dtos.UserDto;
 import com.cdac.group4.tiffin.services.UserService;
 
 @RestController

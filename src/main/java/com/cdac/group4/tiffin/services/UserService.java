@@ -2,7 +2,7 @@ package com.cdac.group4.tiffin.services;
 
 import java.util.List;
 
-import com.cdac.group4.tiffin.payloads.UserDto;
+import com.cdac.group4.tiffin.dtos.UserDto;
 
 public interface UserService {
 

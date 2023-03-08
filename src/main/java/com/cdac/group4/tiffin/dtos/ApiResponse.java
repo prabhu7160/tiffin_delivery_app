@@ -1,4 +1,4 @@
-package com.cdac.group4.tiffin.payloads;
+package com.cdac.group4.tiffin.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -2,7 +2,7 @@ package com.cdac.group4.tiffin.services;
 
 import java.util.List;
 
-import com.cdac.group4.tiffin.payloads.VendorDto;
+import com.cdac.group4.tiffin.dtos.VendorDto;
 
 public interface VendorService {
 

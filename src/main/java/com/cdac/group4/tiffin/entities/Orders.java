@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.cdac.group4.tiffin.entities.enums.DeliveryStatus;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,5 +40,7 @@ public class Orders {
 	@Column(name="time")
 	private Time time;
 	
+	private DeliveryStatus status;
+	//payment type- paid / unpaid
 
 }

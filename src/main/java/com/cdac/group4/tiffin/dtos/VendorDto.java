@@ -1,4 +1,4 @@
-package com.cdac.group4.tiffin.payloads;
+package com.cdac.group4.tiffin.dtos;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -16,7 +16,7 @@ public class VendorDto {
 
 	private int vendorId;
 	private int menuId;
-	@NotNull
+	@NotEmpty(message="name cannot be empty")
 	private String vendorName;
 	@NotNull
 	@NotEmpty

@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cdac.group4.tiffin.dtos.VendorDto;
+import com.cdac.group4.tiffin.entities.Area;
 import com.cdac.group4.tiffin.entities.Vendor;
 import com.cdac.group4.tiffin.exceptions.ResourceNotFoundException;
-import com.cdac.group4.tiffin.payloads.VendorDto;
+import com.cdac.group4.tiffin.repositories.AreaRepo;
 import com.cdac.group4.tiffin.repositories.VendorRepo;
 import com.cdac.group4.tiffin.services.VendorService;
 
@@ -18,7 +20,16 @@ public class VendorServiceImpl implements VendorService {
 	@Autowired
 	private VendorRepo vendorRepo;
 	
-	
+	@Autowired
+    private AreaRepo areaRepo;
+    
+    public List<Vendor> getVendorsByPincode(String pincode) {
+        Area area = areaRepo.findByPincode(pincode);
+        if (area == null) {
+            throw new IllegalArgumentException("Invalid pincode");
+        }
+        return area.getVendors();
+    }
 	@Override
 	public VendorDto createVendor(VendorDto vendorDto) {
 		// TODO Auto-generated method stub

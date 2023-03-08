@@ -7,10 +7,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.cdac.group4.tiffin.dtos.UserDto;
 import com.cdac.group4.tiffin.entities.Users;
 import com.cdac.group4.tiffin.exceptions.*;
-import com.cdac.group4.tiffin.payloads.UserDto;
 import com.cdac.group4.tiffin.repositories.UserRepo;
 import com.cdac.group4.tiffin.services.UserService;
 
