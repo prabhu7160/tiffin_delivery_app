@@ -46,7 +46,7 @@ public class VendorServiceImpl implements VendorService {
 		vendor.setVendorName(vendorDto.getVendorName());
 		vendor.setMobile(vendorDto.getMobile());
 		vendor.setEmail(vendorDto.getEmail());
-		vendor.setPincode(vendorDto.getPincode());
+//		vendor.setPincode(vendorDto.getPincode());
 		vendor.setPassword(vendorDto.getPassword());
 		vendor.setGstNo(vendorDto.getGstNo());
 		vendor.setAddress(vendorDto.getAddress());
@@ -85,7 +85,7 @@ public class VendorServiceImpl implements VendorService {
 		vendor.setVendorName(vendorDto.getVendorName());
 		vendor.setMobile(vendorDto.getMobile());
 		vendor.setEmail(vendorDto.getEmail());
-		vendor.setPincode(vendorDto.getPincode());
+//		vendor.setPincode(vendorDto.getPincode());
 		vendor.setPassword(vendorDto.getPassword());
 		vendor.setGstNo(vendorDto.getGstNo());
 		vendor.setAddress(vendorDto.getAddress());
@@ -100,7 +100,7 @@ public class VendorServiceImpl implements VendorService {
 		vendorDto.setVendorName(vendor.getVendorName());
 		vendorDto.setMobile(vendor.getMobile());
 		vendorDto.setEmail(vendor.getEmail());
-		vendorDto.setPincode(vendor.getPincode());
+//		vendorDto.setPincode(vendor.getPincode());
 		vendorDto.setPassword(vendor.getPassword());
 		vendorDto.setGstNo(vendor.getGstNo());
 		vendorDto.setAddress(vendor.getAddress());

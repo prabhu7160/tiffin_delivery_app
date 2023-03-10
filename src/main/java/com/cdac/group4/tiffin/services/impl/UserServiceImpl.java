@@ -5,9 +5,14 @@ import java.util.stream.Collectors;
 
 //import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.cdac.group4.tiffin.dtos.UserDto;
+import com.cdac.group4.tiffin.dtos.UserResponse;
 import com.cdac.group4.tiffin.entities.Users;
 import com.cdac.group4.tiffin.exceptions.*;
 import com.cdac.group4.tiffin.repositories.UserRepo;
@@ -56,12 +61,30 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserDto> getAllUsers() {
+	public UserResponse getAllUsers(Integer pageNumber, Integer pageSize, String sortBy) {
 		// TODO Auto-generated method stub
+//		int pageSize = 10;
+//		int pageNumber =1;
 		
-		List<Users> users= this.userRepo.findAll();
-		List<UserDto> userDtos= users.stream().map(user->this.userToDto(user)).collect(Collectors.toList());
-		return userDtos;
+		Pageable p = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
+		
+		
+		Page<Users> usersPost= this.userRepo.findAll(p);
+		
+		List<Users> allUsers= usersPost.getContent();
+		
+		List<UserDto> userDtos= allUsers.stream().map(user->this.userToDto(user)).collect(Collectors.toList());
+		
+		UserResponse postResponse = new UserResponse();
+		
+		postResponse.setContent(userDtos);
+		postResponse.setPageNumber(usersPost.getNumber());
+		postResponse.setPageSize(usersPost.getSize());
+		postResponse.setTotalElements(usersPost.getTotalElements());
+		
+		postResponse.setTotalPages(usersPost.getTotalPages());
+		postResponse.setLastPage(usersPost.isLast());
+		return postResponse;
 	}
  
 	@Override

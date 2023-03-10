@@ -64,7 +64,7 @@ public class AreaServiceImpl implements AreaService {
 	private Area dtoToArea(AreaDto areaDto)
 	{
 		Area area = new Area();
-		area.setAreaId(areaDto.getAreaId());
+//		area.setAreaId(areaDto.getAreaId());
 		area.setPincode(areaDto.getPincode());;
 		area.setCity(areaDto.getCity());
 		area.setState(areaDto.getState());
@@ -76,7 +76,7 @@ public class AreaServiceImpl implements AreaService {
 	private AreaDto areaToDto(Area area)
 	{
 		AreaDto areaDto = new AreaDto();
-		areaDto.setAreaId(area.getAreaId());
+//		areaDto.setAreaId(area.getAreaId());
 		areaDto.setPincode(area.getPincode());
 		areaDto.setCity(area.getCity());
 		areaDto.setState(area.getState());

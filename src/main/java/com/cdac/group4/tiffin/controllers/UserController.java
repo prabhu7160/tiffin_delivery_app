@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.group4.tiffin.dtos.ApiResponse;
 import com.cdac.group4.tiffin.dtos.UserDto;
+import com.cdac.group4.tiffin.dtos.UserResponse;
 import com.cdac.group4.tiffin.services.UserService;
 
 @RestController
@@ -57,9 +59,16 @@ public class UserController {
 	
 	//GET - get user data(all)
 	
-	@GetMapping("/")
-	public ResponseEntity<List<UserDto>> getAllUsers(){
-		return ResponseEntity.ok(this.userService.getAllUsers());
+	@GetMapping("/users")
+	public ResponseEntity<UserResponse> getAllUsers(
+		@RequestParam(value="pageNumber", defaultValue = "0", required = false) Integer pageNumber,
+		@RequestParam(value="pageSize", defaultValue="10", required = false) Integer pageSize,
+		@RequestParam(value="sortBy", defaultValue="userId",required = false) String sortBy)
+	{
+//		List<UserDto> allUser = this.userService.getAllUsers(pageNumber, pageSize);
+//		return ResponseEntity.ok(this.userService.getAllUsers(pageNumber, pageSize));
+		UserResponse userResponse = this.userService.getAllUsers(pageNumber, pageSize,sortBy);
+		return new ResponseEntity<UserResponse>(userResponse, HttpStatus.OK);
 	}
 	
 	//GET - get user data(from id)

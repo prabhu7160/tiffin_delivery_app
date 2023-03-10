@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="Vendors")
+@Table(name="vendor")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -33,13 +33,17 @@ public class Vendor {
 	@Column(unique=true)
 	private String email;
 	private String password;
-	
-	private String pincode;
+//	@Column(length=30)
+//	private String pincode;
 	@Column(name="gst_number",unique=true)
 	private String gstNo;
 	private String street;
 	private String address;
 	
+//	@ManyToOne
+//	@JoinColumn(name="pincode")
+//	@JoinColumn(name="pincode",insertable=false,updatable=false, referencedColumnName = "pincode")
+//	private Area area;
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pincode", referencedColumnName = "pincode", insertable = false, updatable = false)
     private Area area;

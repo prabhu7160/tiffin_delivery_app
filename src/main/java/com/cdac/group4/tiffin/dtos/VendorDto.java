@@ -1,6 +1,7 @@
 package com.cdac.group4.tiffin.dtos;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,6 +27,8 @@ public class VendorDto {
 	@NotEmpty
 	@Size(min=3,message="password cannot be smaller than 3 chars!")
 	private String password;
+	@NotEmpty
+	@NotBlank
 	private String pincode;
 	private String gstNo;
 	private String street;

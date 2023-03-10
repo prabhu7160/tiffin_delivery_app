@@ -1,9 +1,12 @@
 package com.cdac.group4.tiffin.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,25 +18,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="Area")
+@Table(name="area")
 @NoArgsConstructor
 @Getter
 @Setter
 public class Area {
 	
 	
-	@Id
-	@Column(unique=true)
+	
+	@Column(name="area_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int areaId;
-	@Column(name="pincode",unique=true)
+	@Column(name="pincode",unique=true,length=30)
+	@Id
 	private String pincode;
 	@Column(name="city")
 	private String city;
 	@Column(name="state")
 	private String state;
 	
-	@OneToMany(mappedBy = "area")
-    private List<Vendor> vendors;
+	@OneToMany(mappedBy="area",cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+    private List<Vendor> vendors = new ArrayList<>();
 	
 }
